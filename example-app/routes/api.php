@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\ClassController;
-use App\Models\ClassModel;
-use App\Models\StudentModel;
+use App\Http\Controllers\StudentController;
 use App\Models\TeacherModel;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/classes', [ClassController::class, 'GetAllClassAPI' ]);
 Route::get('/classes/{id}', [ClassController::class, 'GetClassByIdAPI' ]);
+Route::get('/classes/name/{name}', [ClassController::class, 'GetClassByNameAPI' ]);
+Route::get('/classes/teacher_id/{teacher_id}', [ClassController::class, 'GetClassByTeacherIdAPI' ]);
 
-Route::get('/students', function() {
-    return StudentModel::all();
-});
+Route::get('/students', [StudentController::class, 'GetAllStudentAPI' ]);
+Route::get('/students/{id}', [StudentController::class, 'GetStudentByIdAPI' ]);
+Route::get('/students/name/{name}', [StudentController::class, 'GetStudentByNameAPI' ]);
 
 Route::get('/teachers', function() {
     return TeacherModel::all();
