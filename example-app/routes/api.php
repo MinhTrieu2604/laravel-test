@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\ClassModel;
+use App\Models\StudentModel;
+use App\Models\TeacherModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/classes', function() {
+    return ClassModel::all();
 });
+
+Route::get('/students', function() {
+    return StudentModel::all();
+});
+
+Route::get('/teachers', function() {
+    return TeacherModel::all();
+});
+
