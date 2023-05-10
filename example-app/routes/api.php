@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassController;
 use App\Models\ClassModel;
 use App\Models\StudentModel;
 use App\Models\TeacherModel;
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/classes', function() {
-    return ClassModel::all();
-});
+Route::get('/classes/{id}', [ClassController::class, 'GetClassByIdAPI' ]);
 
 Route::get('/students', function() {
     return StudentModel::all();

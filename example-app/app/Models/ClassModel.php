@@ -12,5 +12,4 @@ class ClassModel extends Model
     public $timestamps = false;
     protected $primaryKey = 'id';
     public $incrementing = true;
-    protected $hidden = ['id'];
 }
